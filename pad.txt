@@ -1,2 +1,9 @@
 (responseData = data)) 
 .then((responseData) => 
+
+
+
+ const heading = resData.title;
+    const date = resData.date;
+    const textBlock = resData.explanation;
+    const dailyImg = resData.url;

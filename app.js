@@ -1,17 +1,21 @@
+
+
 const stringPassIn = `https://api.nasa.gov/planetary/apod?api_key=vVoCVxcepv4Ob0JI2VysjrNxtZ9RGTE6MYlwFjtW`
+let responseData;   //defines the variable I will use for the parsed data.
 
 
-fetch (stringPassIn)               //fetch data from the api
-  .then((res) => res.json())       //parses the data from JSON back into useable data
-  .then((resData)  => {            //re-names the data with variables I can inject into the dom
-    const heading = resData.title;
-    const date = resData.date;
-    const textBlock = resData.explanation;
-    const dailyImg = resData.url;
-
-    document.querySelector('h1').innerHTML =`NASA Daily Photo ${heading}`;//first three are dynamic text
-    document.querySelector('h3').innerHTML = date;
-    document.querySelector('p').innerHTML  = textBlock;
-    document.getElementById('myImg').src   = dailyImg; //dynamic image
+fetch (stringPassIn)                        //fetch data from the api
+  .then((res) => res.json())                //parses the data from JSON back into useable data (an object in this case)
+  .then((data)  => (responseData = data))   //re-names the data so I can access it using .notation
+  .then(() => {             
+   
+    document.querySelector('h1').innerHTML =`NASA Daily Photo ${responseData.title}`;//first three are dynamic text
+    document.querySelector('h3').innerHTML = responseData.date;
+    document.querySelector('p').innerHTML  = responseData.explanation;
+    document.getElementById('myImg').src   = responseData.url; //dynamic image
 
 });
+
+//I could also assign the data to variables and then insert the variables into the inner html but this 
+
+// is less code. 
