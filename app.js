@@ -9,8 +9,7 @@ fetch (stringPassIn)                        //fetch data from the api
   .then((data)  => (responseData = data))   //re-names the data so I can access it using .notation
   .then(() => {             
    
-    document.querySelector('h1').innerHTML =`NASA Daily Photo ${responseData.title}`;//first three are dynamic text
-    document.querySelector('h3').innerHTML = responseData.date;
+    document.querySelector('h1').innerHTML =`NASA Daily Photo ${responseData.title}`;//first two are dynamic text
     document.querySelector('p').innerHTML  = responseData.explanation;
     document.getElementById('myImg').src   = responseData.url; //dynamic image
 
