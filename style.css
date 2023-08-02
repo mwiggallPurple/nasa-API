@@ -45,3 +45,16 @@ img{
     border-radius: 10px;
     background-color:black;
 }
+
+@media screen and (min-width: 480px){
+    img{
+        flex-wrap: wrap;
+        margin:auto;
+        width: 450px;
+        height: 375px;
+        padding: 15px;
+        border: solid 1px black;
+        border-radius: 10px;
+        background-color:black; 
+    }
+}
